@@ -1,0 +1,39 @@
+version: '3.4'
+
+services:
+  envoy:
+    image: ${DOCKER_REGISTRY-}envoygateway
+    build:
+      context: .
+      dockerfile: Envoy/Dockerfile
+    volumes:
+      - ./Envoy/envoy.yaml:/etc/envoy/envoy.yaml
+    ports:
+    - "9901:9901"
+    - "10000:10000"
+
+  teaapi:
+    image: ${DOCKER_REGISTRY-}teaapi
+    build:
+      context: .
+      dockerfile: src/Services/TeaAPI/Dockerfile
+    ports:
+      - "7080:80"
+      - "7081:443"
+
+
+  coffeeapi:
+    image: ${DOCKER_REGISTRY-}coffeeapi
+    build:
+      context: .
+      dockerfile: src/Services/CoffeeAPI/Dockerfile
+    ports:
+      - "8080:80"
+      - "8081:443"
+    environment:
+      ASPNETCORE_URLS: "https://+;http:+"
+      ASPNETCORE_HTTPS_PORT: "8081"
+      ASPNETCORE_ENVIRONMENT: "Development"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${USERPROFILE}/.aspnet/https:/root/.aspnet/https:ro

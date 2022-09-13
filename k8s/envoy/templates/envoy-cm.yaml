@@ -1,0 +1,10 @@
+{{- $name := include "envoy.fullname" . -}}
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "envoy-{{ $name }}"
+  labels:
+  {{- include "envoy.labels" . | nindent 4 }}
+data:
+{{ (.Files.Glob "envoy.yaml").AsConfig | indent 2 }}

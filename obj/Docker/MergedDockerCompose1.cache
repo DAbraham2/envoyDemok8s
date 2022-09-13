@@ -1,0 +1,65 @@
+name: dockercompose14603844895267739052
+services:
+  coffeeapi:
+    build:
+      context: Z:\Sandbox Projects\envoyApiGwDemo\EnvoyApiGwDemo
+      dockerfile: src/Services/CoffeeAPI/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: coffeeapi
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+    - mode: ingress
+      target: 443
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: C:\Users\Daniel\AppData\Roaming/Microsoft/UserSecrets
+      target: /root/.microsoft/usersecrets
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\Daniel\AppData\Roaming/ASP.NET/Https
+      target: /root/.aspnet/https
+      read_only: true
+      bind:
+        create_host_path: true
+  teaapi:
+    build:
+      context: Z:\Sandbox Projects\envoyApiGwDemo\EnvoyApiGwDemo
+      dockerfile: src/Services/TeaAPI/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: teaapi
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+    - mode: ingress
+      target: 443
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: C:\Users\Daniel\AppData\Roaming/Microsoft/UserSecrets
+      target: /root/.microsoft/usersecrets
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\Daniel\AppData\Roaming/ASP.NET/Https
+      target: /root/.aspnet/https
+      read_only: true
+      bind:
+        create_host_path: true
+networks:
+  default:
+    name: dockercompose14603844895267739052_default

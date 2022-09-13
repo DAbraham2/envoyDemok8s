@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "vrA3Vm/14mxHvR5O4hSbiP5lk4/35Njtd6iD3P3neO63EwiC8tXrC5NdAWkSu2wOjrjFvBo2kjh77O+9sM2WXw==",
+  "success": true,
+  "projectFilePath": "Z:\\Sandbox Projects\\envoyApiGwDemo\\EnvoyApiGwDemo\\src\\Services\\TeaAPI\\TeaAPI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Daniel\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\Daniel\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Daniel\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.0\\microsoft.visualstudio.azure.containers.tools.targets.1.17.0.nupkg.sha512",
+    "C:\\Users\\Daniel\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\Daniel\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\Daniel\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\Daniel\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
