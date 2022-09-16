@@ -23,7 +23,7 @@ services:
 
 
   coffeeapi:
-    image: ${DOCKER_REGISTRY-}coffeeapi
+    image: coffeeapi:1.0.0
     build:
       context: .
       dockerfile: src/Services/CoffeeAPI/Dockerfile

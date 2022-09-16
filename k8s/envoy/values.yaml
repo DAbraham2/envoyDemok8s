@@ -42,27 +42,29 @@ service:
 
 ingress:
   enabled: true
-  className: ""
+  className: "nginx-example"
   annotations: #{}
-    kubernetes.io/ingress.class: nginx
+    #kubernetes.io/ingress.class: ingress-nginx
     #kubernetes.io/tls-acme: "true"
-    ingress.kubernetes.io/ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: letsencrypt
   hosts:
-    - host: chart-example.local
+    - host: api.gyoronkent.hu
       paths:
-        - path: /gw
+        - path: /gw(/|$)(.*)
           pathType: Prefix
-    - host: localhost
+    - host: proxy.api.gyoronkent.hu
       paths:
-        - path: /gw
+        - path: /(.*)
           pathType: Prefix
-        - path: /gw
-          pathType: Exact
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
+  tls: #[]
+  - secretName: tls-secret
+    hosts:
+      - api.gyoronkent.hu
+      - proxy.api.gyoronkent.hu
+      #- api.1ac1e7fd8a43464882be.germanywestcentral.aksapp.io
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

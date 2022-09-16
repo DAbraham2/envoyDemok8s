@@ -1,0 +1,19 @@
+apiVersion: k8s.nginx.org/v1
+kind: GlobalConfiguration 
+metadata:
+  name: nginx-configuration
+  namespace: nginx-ingress
+spec:
+  listeners:
+  - name: dns-udp
+    port: 5353
+    protocol: UDP
+  - name: dns-tcp
+    port: 5353
+    protocol: TCP
+  - name: http-tcp
+    port: 80
+    protocol: TCP
+  - name: https-tcp
+    port: 443
+    protocol: TCP

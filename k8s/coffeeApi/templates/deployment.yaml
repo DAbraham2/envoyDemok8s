@@ -20,9 +20,9 @@ spec:
       labels:
         {{- include "coffeeApi.selectorLabels" . | nindent 8 }}
     spec:
-      {{- with .Values.imagePullSecrets }}
+      {{- if .Values.inf.registry }}
       imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
+      - name: azurecred
       {{- end }}
       serviceAccountName: {{ include "coffeeApi.serviceAccountName" . }}
       securityContext:

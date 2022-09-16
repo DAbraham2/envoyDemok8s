@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vms-ingress-with-annotations
+  annotations: 
+    nginx.org/server-snippets: |
+      location / {
+        return 302 /coffee;
+      }
+spec:
+  ingressClassName: nginx-example
+  rules:
+  - http:
+      paths:
+      - path: /gw
+        pathType: Prefix
+        backend:
+          service:
+            name: vms-envoy
+            port:
+              number: 10000

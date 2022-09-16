@@ -29,12 +29,12 @@ static_resources:
               domains: ["*"]
               routes:
               - match:
-                  prefix: "/gw/c"
+                  prefix: "/c"
                 route:
                   prefix_rewrite: "/coffee"
                   cluster: coffee_service
               - match:
-                  prefix: "/gw/coffee"
+                  prefix: "/coffee"
                 route:
                   prefix_rewrite: "/coffee"
                   cluster: coffee_service

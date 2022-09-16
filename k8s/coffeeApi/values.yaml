@@ -55,6 +55,18 @@ ingress:
       paths:
         - path: /
           pathType: Prefix
+    - host: vms-test-cluster-48ab7881.hcp.germanywestcentral.azmk8s.io
+      paths:
+        - path: /
+          pathType: Prefix
+    - host: 1ac1e7fd8a43464882be.germanywestcentral.aksapp.io
+      paths:
+        - path: /
+          pathType: Prefix
+    - host: 0.0.0.0
+      paths:
+        - path: /
+          pathType: Prefix
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
